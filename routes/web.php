@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +22,16 @@ Route::get('/', function () {
 });
 
 //hace referencia al app que creé con hola mundo
-Route::get('/app', function () {
+Route::get('/tareas', function () {
     return view('todos.index');
-});
+})->name('todos');;
 
 
 Route::get('/hola', function () {
     return 'hola a todossss';
 });
+
+                                                //el store es el que se llama
+Route::post('/tareas', [TodosController::class,'store'])->name('todos');
+                                                    // el name es para que con este nombre se haga referencia
+        // si cambia el /todos por fuera se puede llamar con todos
