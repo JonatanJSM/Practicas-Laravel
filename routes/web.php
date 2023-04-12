@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//route es un objeto   los  :: son como el . en Java
+
+// '/' es la direccion raiz
 Route::get('/', function () {
     return view('welcome');
+});
+
+//hace referencia al app que creé con hola mundo
+Route::get('/app', function () {
+    return view('todos.index');
+});
+
+
+Route::get('/hola', function () {
+    return 'hola a todossss';
 });
