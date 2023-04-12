@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // este es el ORM
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -24,6 +25,7 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     * eliminar lo que se acaba de crear
      */
     public function down(): void
     {
