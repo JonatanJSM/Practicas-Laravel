@@ -1,4 +1,8 @@
 <?php
+// para crear modelo es 
+//php artisan make:model nombre -m 
+
+//phph artisan make:controller nombre
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -22,6 +26,7 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     * php artisan migrate para ejecutar las migraciones
      */
     public function down(): void
     {

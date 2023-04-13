@@ -31,7 +31,19 @@ Route::get('/hola', function () {
     return 'hola a todossss';
 });
 
+//cuando escribo /tareas se ejecuta index
+Route::get('/tareas', [TodosController::class,'index'])->name('todos');
+
+
                                                 //el store es el que se llama
 Route::post('/tareas', [TodosController::class,'store'])->name('todos');
                                                     // el name es para que con este nombre se haga referencia
         // si cambia el /todos por fuera se puede llamar con todos
+
+
+Route::get('/tareas/{id}', [TodosController::class,'show'])->name('todos-show');
+
+Route::patch('/tareas/{id}', [TodosController::class,'update'])->name('todos-update');
+
+
+Route::delete('/tareas/{id}', [TodosController::class,'destroy'])->name('todos-destroy');
