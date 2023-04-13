@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- blade es un motor de plantillas que traduce el código a html-->
+<!-- con blade evitamos poner el php al inicio y fin-->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
