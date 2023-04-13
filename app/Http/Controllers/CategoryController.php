@@ -46,9 +46,9 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $category)
     {
-        $cat = Category::find($id);
+        $cat = Category::find($category);
         return view('categorias.show',['category' => $cat]);
     }
 
@@ -63,9 +63,9 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $category)
     {
-        $category = Category::find($id);
+        $category = Category::find($category);
         
         $category->name = $request->name;
         $category->color = $request->color;
@@ -77,9 +77,12 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy($category)
     {
-        $category = Category::find($id);
+        $category = Category::find($category);
+        $category->todos()->each(function($todo){
+            $todo->delete();
+        });
         $category->delete();
         return redirect()->route('categories.index')->with('success', 'Category deleted successfully');
     }

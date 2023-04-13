@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todo;
+use App\Models\Category;
 
 
 class TodosController extends Controller
@@ -24,7 +25,9 @@ class TodosController extends Controller
 
          $todo = new Todo;
         $todo->title = $request->title;
+        $todo->category_id = $request->category_id;
         $todo->save();
+        
 
         return redirect()->route('todos')->with('success', 'Todo created successfully');
      }
@@ -32,7 +35,8 @@ class TodosController extends Controller
      public function index()
      {
          $todos = Todo::all();
-         return view('todos.index', ['todos' => $todos]);
+         $cat = Category::all();
+         return view('todos.index', ['todos' => $todos,'categories'=>$cat]);
          // el segundo dato son los datos que se le pasan a la vista
      }
 

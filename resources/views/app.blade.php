@@ -26,10 +26,10 @@
                 <a class="nav-link active" aria-current="page" href="#">Mis tareas</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Tareas</a>
+                <a class="nav-link" href="{{route('todos')}}">Tareas</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="{{route('categories.index')}}">Categori</a>
                 </li>
             </ul>
             <span class="navbar-text">

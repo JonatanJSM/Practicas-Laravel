@@ -30,6 +30,7 @@
     </form>
 
     <div >
+                <!-- categorias por el controlador index-->
         @foreach ($categorias as $category)
             <div class="row py-1">
                 <div class="col-md-9 d-flex align-items-center">

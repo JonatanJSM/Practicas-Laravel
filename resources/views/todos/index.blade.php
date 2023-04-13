@@ -26,6 +26,14 @@
                 <input type="text" class="form-control mb-2" name="title" id="exampleFormControlInput1" placeholder="Comprar la cena">
                 <div id="emailHelp" class="form-text">Registrar tesis</div>
             </div>
+
+            <label for="category_id" class="form-label">Categoria de la tarea</label>
+            <select name="category_id" class="form-select">
+                @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+
               <input type="submit" value="Crear tarea" class="btn btn-primary my-2" />
         </form>
 

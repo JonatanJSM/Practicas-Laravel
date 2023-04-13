@@ -6,6 +6,7 @@
     <div class="row mx-auto">
     <form  method="POST" action="{{route('categories.update',['category' => $category->id])}}">
         @method('PATCH')
+        <!--patch para actualizar o eliminar, pero más para actualzar-->
         @csrf
 
         <div class="mb-3 col">
@@ -32,6 +33,28 @@
         </div>
     </form>
 
+    <div>
+        @if ($category->todos->count() > 0)
+            @foreach ($category->todos as $todo )
+                <div class="row py-1">
+                    <div class="col-md-9 d-flex align-items-center">
+                        <a href="{{ route('todos-edit', ['id' => $todo->id]) }}">{{ $todo->title }}</a>
+                    </div>
+    
+                    <div class="col-md-3 d-flex justify-content-end">
+                        <form action="{{ route('todos-destroy', [$todo->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            @endforeach    
+        @else
+            No hay tareas para esta categoría
+        @endif
+        
+    </div>
    
     </div>
 </div>

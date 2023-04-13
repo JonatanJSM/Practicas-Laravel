@@ -1,5 +1,5 @@
 <?php
-
+//subir los datos a la base de datos
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
