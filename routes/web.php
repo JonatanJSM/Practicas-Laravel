@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodosController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,7 @@ Route::patch('/tareas/{id}', [TodosController::class,'update'])->name('todos-upd
 
 
 Route::delete('/tareas/{id}', [TodosController::class,'destroy'])->name('todos-destroy');
+
+Route::resource('categories',CategoryController::class);
+// php artisan make:controller CategorisController --resource
+// para crear rápido los métdosos de controlador
