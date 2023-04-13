@@ -13,6 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categorias = Category::all();
+                //caprta vistas
         return view('categorias.index',['categorias' => $categorias]);
     }
 
@@ -70,7 +71,7 @@ class CategoryController extends Controller
         $category->color = $request->color;
         $category->save();
 
-        return redirect()->route('categorias.index')->with('success', 'Category updated successfully');
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully');
     }
 
     /**
@@ -80,6 +81,6 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        return redirect()->route('categorias.index')->with('success', 'Category deleted successfully');
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully');
     }
 }
